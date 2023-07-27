@@ -30,13 +30,13 @@ type block struct {
 }
 
 // Returns an BlockTree with tree length h and upper bound e engueues. (e, h>1)
-func blockTree(h int64, e int64) BlockTree {
+func NewBlockTree(h int64, e int64) BlockTree {
 	if h == 1 {
 		return baseCaseBlockTree(e, PID())
 	}
 	root := emptyNode(e, PID())
-	leftSubTree := blockTree(h-1, e)
-	rightSubTree := blockTree(h-1, e)
+	leftSubTree := NewBlockTree(h-1, e)
+	rightSubTree := NewBlockTree(h-1, e)
 	root.left = leftSubTree.root
 	root.right = rightSubTree.root
 	leftSubTree.root.parent = root

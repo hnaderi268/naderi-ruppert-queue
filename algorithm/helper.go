@@ -2,7 +2,9 @@ package algorithm
 
 import (
 	"fmt"
+	"math/rand"
 	"sync/atomic"
+	"time"
 	"unsafe"
 )
 
@@ -68,12 +70,12 @@ func bfsUtil(nodes []*Node, i int64) []*Node {
 	if nodes[i].right != nil {
 		nodes = append(nodes, nodes[i].right)
 	}
-	return bfsUtil(nodes, 1+1)
+	return bfsUtil(nodes, i+1)
 }
 
 func printUtil(list []*Node) {
 	for i, n := range list {
-		fmt.Println(n, " ")
+		fmt.Print(n, " ")
 		if isPowerOfTwo(int64(i + 2)) { // Break line as height of n increases.
 			fmt.Println()
 		}
@@ -105,4 +107,9 @@ func (b *block) String(isRoot bool, isLeaf bool) string {
 		res = fmt.Sprint(res, " ", b.endLeft, b.endRight, b.super)
 	}
 	return fmt.Sprint(res, "|")
+}
+
+func RandomSleep(ms int) {
+	n := rand.Intn(ms) // [0, ms)
+	time.Sleep(time.Duration(n) * time.Millisecond * 10)
 }

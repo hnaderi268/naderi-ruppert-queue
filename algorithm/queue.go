@@ -40,6 +40,7 @@ func (q *BlockTree) append(b block, i int64) {
 }
 
 func (q *BlockTree) propagate(n *Node) {
+	RandomSleep(2)
 	if !n.refresh() {
 		n.refresh()
 	}
