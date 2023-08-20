@@ -23,7 +23,7 @@ func Log(pid int64, opState opState, v ...interface{}) {
 	case END_ENQ:
 		write(fmt.Sprint(endf(pid)), pid)
 	case END_DEQ:
-		write(fmt.Sprint(endf(pid), "▢▢▢ -> ", v[0]), pid)
+		write(fmt.Sprint(endf(pid), "    ▢▢▢ -> ", v[0]), pid)
 	}
 }
 

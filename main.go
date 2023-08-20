@@ -7,18 +7,18 @@ import (
 
 func main() {
 
-	io.Init(8)
+	io.Init(4)
 
-	q := algorithm.NewBlockTree(4, 100)
+	q := algorithm.NewBlockTree(3, 100)
 
 	DoJob(q, job0)
 	DoJob(q, job1)
 	DoJob(q, job2)
-	DoJob(q, job3)
-	DoJob(q, job4)
-	DoJob(q, job5)
-	DoJob(q, job6)
-	DoJob(q, job7)
+	//DoJob(q, job3)
+	//DoJob(q, job4)
+	//DoJob(q, job5)
+	//DoJob(q, job6)
+	//DoJob(q, job7)
 	Wait()
 
 	q.Print()
@@ -30,25 +30,25 @@ func job0(interfaceQ interface{}) {
 	Enqueue(q, "01", 0)
 	Enqueue(q, "02", 0)
 	Dequeue(q, 0)
-	Enqueue(q, "03", 0)
-	Enqueue(q, "04", 0)
-	Enqueue(q, "05", 0)
+	//Enqueue(q, "03", 0)
+	//Enqueue(q, "04", 0)
+	//Enqueue(q, "05", 0)
 }
 
 func job1(interfaceQ interface{}) {
 	q := interfaceQ.(algorithm.BlockTree)
 	Enqueue(q, "11", 1)
-	Enqueue(q, "12", 1)
 	Dequeue(q, 1)
-	Enqueue(q, "13", 1)
-	Enqueue(q, "14", 1)
+	Enqueue(q, "12", 1)
+	//Enqueue(q, "13", 1)
+	//Enqueue(q, "14", 1)
 }
 
 func job2(interfaceQ interface{}) {
 	q := interfaceQ.(algorithm.BlockTree)
 	Dequeue(q, 2)
-	Dequeue(q, 2)
-	Dequeue(q, 2)
+	//Dequeue(q, 2)
+	//Dequeue(q, 2)
 	Enqueue(q, "21", 2)
 }
 
